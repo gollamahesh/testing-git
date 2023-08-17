@@ -1,3 +1,3 @@
 first=$1
-Second=$2
-echo "Love you $First and $Second"
+second=$2
+echo "Love you $first and $second"
