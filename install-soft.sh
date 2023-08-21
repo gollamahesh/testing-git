@@ -6,8 +6,8 @@ Script_name=$0
 Logfile=$Logdirectory+$Script_name-$Date.log
 Userid=$(id -u)
 R="\e[31m"
-G="\e[31m"
-N="\e[om"
+G="\e[32m"
+N="\e[0m"
 Y="\e[33m"
 
 if [ $Userid -ne 0 ]
