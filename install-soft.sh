@@ -1,2 +1,3 @@
 #!/bin/bash
-Date=$(date %F)
+Date=$(date +%F)
+echo $Date
