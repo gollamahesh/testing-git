@@ -15,3 +15,15 @@ then
     echo -e "$R Error: $N Please login with root user"
     exit 1
 fi
+
+Validate(){
+    if [ $1 -ne 0 ]
+    then
+        echo -e "Installing $2 ... $R Failure $N"
+    else
+        echo -e "Installing $2 ... $G Success $N"
+    fi
+}
+
+yum install postfix -y
+Validate $? "postfix"
