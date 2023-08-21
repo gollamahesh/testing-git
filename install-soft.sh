@@ -3,7 +3,7 @@ Date=$(date +%F)
 echo $Date
 Logdirectory=/home/centos/shell-scripts/logs
 Script_name=$0
-Logfile=$Logdirectory+$Script_name-$Date.log
+Logfile=$Logdirector-$Script_name-$Date.log
 Userid=$(id -u)
 R="\e[31m"
 G="\e[32m"
