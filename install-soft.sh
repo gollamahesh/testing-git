@@ -10,7 +10,7 @@ G="\e[31m"
 N="\e[om"
 Y="\e[33m"
 
-if[ $Userid -ne 0]
+if [ $Userid -ne 0 ]
 then
     echo -e "$R Error: $N Please login with root user"
     exit 1
