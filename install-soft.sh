@@ -25,5 +25,5 @@ Validate(){
     fi
 }
 
-yum install postfix -y
+yum install postfix -y &>>$Logfile
 Validate $? "postfix"
