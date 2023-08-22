@@ -30,7 +30,7 @@ Validate(){
 
 for i in $@
 do
-    yun list installed $i &>>$Logfile
+    yum list installed $i &>>$Logfile
     if [ $? -ne 0 ]
     then    
         echo -e "$R $i is not installed. let's install $i $N"
