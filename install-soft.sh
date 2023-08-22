@@ -15,7 +15,7 @@ then
     echo -e "$R Error: $N Please login with root user"
     exit 1
 fi
-
+# validate function to check the exit status
 Validate(){
     if [ $1 -ne 0 ]
     then
@@ -27,3 +27,15 @@ Validate(){
 
 yum install postfix -y &>>$Logfile
 Validate $? "postfix"
+
+for i in $@
+do
+    yun list installed $i &>>$Logfile
+    if [ $? -ne 0 ]
+    then    
+        echo -e "$R $i is not installed. let's install $i $N"
+        yum install $i -y &>>$Logfile
+    else
+        echo -e "$Y $i is already installed $N"
+    fi
+done
