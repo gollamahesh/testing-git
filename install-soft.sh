@@ -25,8 +25,7 @@ Validate(){
     fi
 }
 
-# yum install postfix -y &>>$Logfile
-# Validate $? "postfix"
+
 
 for i in $@
 do
