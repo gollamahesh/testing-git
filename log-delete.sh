@@ -7,4 +7,5 @@ Files_to_delete=$(find $Applog_directory_name -name "*.log" -type f -mtime +20)
 while read line
 do
     echo "$Files_to_delete"
+    rm -rf $line
 done <<< $Files_to_delete
