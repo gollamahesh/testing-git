@@ -2,7 +2,7 @@
 
 Names=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
 
-for i in line
+for i in $Names[@]
 do
-    echo $Names[i]
+    echo "Name is : $i"
 done
