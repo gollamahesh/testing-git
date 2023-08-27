@@ -11,6 +11,5 @@ do
         echo "t2.micro"
     fi 
     echo "creating $i instance"
-    aws 
 
 done
