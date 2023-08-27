@@ -13,6 +13,6 @@ do
     #     echo "t2.micro"
     # fi 
     echo "creating $i instance"
-    ip_address=$(aws ec2 run-instances --image-id $imageid --instance-type $Instance_type --security-group-ids $Security_group_id --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.instances[0].PrivateIpAddress')
+    ip_address=$(aws ec2 run-instances --image-id $imageid --instance-type $Instance_type --security-group-ids $Security_group_id --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.Instances[0].PrivateIpAddress')
     echo "created $i instance and Ip address is $ip_address"
 done
