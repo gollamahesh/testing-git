@@ -8,4 +8,5 @@ while read line
 do
     echo "$Files_to_delete"
     rm -rf $line
+    
 done <<< $Files_to_delete
