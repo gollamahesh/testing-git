@@ -2,7 +2,7 @@
 
 Names=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
 imageid=ami-03265a0778a880afb
-$Instance_type=t2.micro
+$Instance_type="t2.micro"
 $Security_group_id=sg-0ff50d5fb4461d993
 for i in "${Names[@]}"
 do  
