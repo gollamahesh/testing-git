@@ -4,7 +4,7 @@ Names=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping"
 
 for i in ${Names[@]}
 do  
-    if [ [ $i == "mongodb" || $i == "mysql"] ]
+    if [[ $i == "mongodb" || $i == "mysql"]]
     then
         echo "t3.micro"
     else
