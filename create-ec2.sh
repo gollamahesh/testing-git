@@ -4,5 +4,13 @@ Names=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping"
 
 for i in ${Names[@]}
 do  
-    echo "Name is : $i"
+    if [ [ $i == "mongodb" || $i == "mysql"] ]
+    then
+        echo "t3.micro"
+    else
+        echo "t2.micro"
+    fi 
+    echo "creating $i instance"
+    aws 
+
 done
