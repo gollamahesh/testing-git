@@ -28,6 +28,5 @@ do
                                  "ResourceRecords": [{ "Value": "'$ip_address'"}]
     }}]
     }
-    '
-    
+    '   
 done

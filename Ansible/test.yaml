@@ -1,0 +1,5 @@
+- name: testing the ansible
+  hosts: node1
+  tasks: 
+    - name: pinging the server
+      ansible.builtin.ping:
