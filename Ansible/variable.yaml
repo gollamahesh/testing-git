@@ -2,4 +2,5 @@
   hosts: node1
   tasks:
     - name: testing
-      ansible.builtin.debug: hello
+      ansible.builtin.debug:
+        msg: hello
