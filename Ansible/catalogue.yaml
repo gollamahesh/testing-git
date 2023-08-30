@@ -17,8 +17,8 @@
 
   - name: print the command output
     debug:
-      msg: "{{out}}"
+      msg: "output is {{out}}"
   
   - name: print exit status
     debug:
-      msg: "{{out.rc}}"
+      msg: "output is {{out.rc}}"
