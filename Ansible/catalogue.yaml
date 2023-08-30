@@ -1,0 +1,20 @@
+- name: setting up the v=catalogue mongodb-server
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: Setup NodeJS repos
+    shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash" 
+
+  - name: Install NodeJS
+    yum:
+      name: nodejs
+      state: installed
+  
+  - name: check user is exists or not
+    command: id roboshop
+    register: out
+    ignore_errors: true
+
+  - name: print the command output
+    debug:
+      msg: "{{out}}"
