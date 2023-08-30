@@ -1,6 +1,9 @@
 - name: variable usage
   hosts: node1
+  vars: 
+  - place: canada
+    name: hari
   tasks:
     - name: testing
       debug:
-        msg: hello
+        msg: hello {{name}} from {{place}}
