@@ -1,0 +1,5 @@
+- name: variable usage
+  hosts: node1
+  tasks:
+    - name: testing
+      debug: hello
