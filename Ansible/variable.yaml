@@ -3,7 +3,8 @@
   vars: 
   - place: canada
   - name: hari
+  - age: 67
   tasks:
     - name: testing
       debug:
-        msg: hello {{name}} from {{place}}
+        msg: hello {{name}} from {{place}} aged {{age}}
