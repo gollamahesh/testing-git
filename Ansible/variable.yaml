@@ -1,9 +1,9 @@
 - name: variable usage
   hosts: node1
   vars: 
-  - place: canada
-  - name: hari
-  - age: 67
+    place: canada
+    name: hari
+    age: 67
   tasks:
     - name: testing
       debug:
