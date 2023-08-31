@@ -1,0 +1,45 @@
+- name: configuring the web module
+  hosts: web
+  become: yes
+  tasks:
+    - name: Install Nginx
+      yum: 
+        name: nginx
+        state: installed
+    
+    - name: Start & Enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: remove html directory
+      file:
+        path: /usr/share/nginx/html
+        state: absent
+
+    - name: create html directory
+      file: 
+        path: /usr/share/nginx/html
+        state: directory
+
+    - name: Download the frontend content
+      get_url:
+        url: https://roboshop-builds.s3.amazonaws.com/web.zip
+        dest: /tmp
+    
+    - name: extract the web.zip
+      unarchive:
+        src: /tmp/web.zip
+        dest: /app
+        remote_src: yes
+
+    - name: Create Nginx Reverse Proxy Configuration.
+      copy:
+        src: roboshop.conf
+        dest: /etc/nginx/default.d/roboshop.conf
+
+    - name: Restart Nginx Service to load the changes of the configuration.
+      service:
+        name: nginx
+        state: restarted
