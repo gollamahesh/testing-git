@@ -31,7 +31,7 @@
     - name: extract the web.zip
       unarchive:
         src: /tmp/web.zip
-        dest: /app
+        dest: /usr/share/nginx/html
         remote_src: yes
 
     - name: Create Nginx Reverse Proxy Configuration.
