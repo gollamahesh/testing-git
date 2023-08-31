@@ -32,7 +32,7 @@
   - name: checking an app directory is exists or not.
     stat:
       path: /app
-      register: directory
+    register: directory
   
   - name: printing the directory stats
     debug:
