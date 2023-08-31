@@ -37,3 +37,9 @@
   - name: printing the directory stats
     debug:
       msg: "output is {{directory}}"
+
+  - when: directory.stat.exists == 'False'
+    name: create /app directory
+    file:
+      path: /app
+      state: directory
