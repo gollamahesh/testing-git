@@ -22,3 +22,10 @@
   - name: print exit status
     debug:
       msg: "output is {{out.rc}}"
+    
+  - when: out.rc != 0
+    name: create roboshop user
+    become: yes
+    user:
+      name: roboshop
+      
