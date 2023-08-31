@@ -45,5 +45,6 @@
       state: directory
 
   - name: Download the application code to created app directory.
-    get_url: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-    dest: /tmp
+    get_url: 
+      url: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+      dest: /tmp
