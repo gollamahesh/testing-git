@@ -28,4 +28,12 @@
     become: yes
     user:
       name: roboshop
-      
+
+  - name: checking an app directory is exists or not.
+    stat:
+      path: /app
+      register: directory
+  
+  - name: printing the directory stats
+    debug:
+      msg: "output is {{directory}}"
