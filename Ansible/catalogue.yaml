@@ -59,3 +59,31 @@
     command: npm install
     args: 
       chdir: /app
+    
+  - name: Setup SystemD Catalogue Service
+    copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: daemon reload
+    systemd:
+      daemon_reload: true
+
+  - name: copy mongo repo to yum.repos.d
+    copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+
+  - name: install mongo client
+    yum:  
+      name: mongodb-org
+      state: installed
+
+  - name : install depencies
+    command: mongo --host mongodb.maheshgolla.online < /app/schema/catalogue.js
+
+  - name: restart mongodb
+    service:
+      name: mongod
+      state: restarted
+      enabled: true
