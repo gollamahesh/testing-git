@@ -16,9 +16,9 @@
     ignore_errors: true
 
   - name: print the command output
-    ansible.builtin.debug:
+    debug:
       msg: "output is {{out}}"
   
   - name: print exit status
-    ansible.builtin.debug:
+    debug:
       msg: "output is {{out.rc}}"
