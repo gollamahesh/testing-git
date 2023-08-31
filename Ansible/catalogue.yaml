@@ -38,8 +38,12 @@
     debug:
       msg: "output is {{directory}}"
 
-  - when: directory.stat.exists == 'False'
+  - when: directory.stat.exists == False
     name: create /app directory
     file:
       path: /app
       state: directory
+
+  - name: Download the application code to created app directory.
+    get_url: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+    dest: /tmp
