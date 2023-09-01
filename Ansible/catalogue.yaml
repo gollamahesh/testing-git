@@ -80,7 +80,7 @@
       state: installed
 
   - name : install depencies
-    command: mongo --host mongodb.maheshgolla.online < /app/schema/catalogue.js
+    shell: "mongo --host mongodb.maheshgolla.online < /app/schema/catalogue.js"
 
   - name: restart mongodb
     service:
