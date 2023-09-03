@@ -6,6 +6,7 @@
       yum:
         name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
         state: installed
+        disable_gpg_chech: true
 
     - name: enable redis
       command: yum module enable redis:remi-6.2 -y
