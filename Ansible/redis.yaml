@@ -2,10 +2,10 @@
   hosts: redis
   become: yes
   tasks: 
-    name: installing redis repo
-    yum:
-      name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-      state: installed
+    - name: installing redis repo
+      yum:
+        name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+        state: installed
 
-      name: enable redis
+    - name: enable redis
       command: yum module enable redis:remi-6.2 -y
