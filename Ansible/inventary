@@ -24,3 +24,9 @@ mysql.maheshgolla.online
 
 [shipping]
 shipping.maheshgolla.online
+
+[rabbitmq]
+rabbitmq.maheshgolla.online
+
+[payment]
+payment.maheshgolla.online
