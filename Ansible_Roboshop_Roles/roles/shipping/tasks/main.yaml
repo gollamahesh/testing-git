@@ -9,7 +9,7 @@
     tasks_from: app-setup
 
 - name: install dependencies
-  ansible.builtin.command: maven clean package
+  ansible.builtin.command: mvn clean package
   args:
     chdir: /app
 
@@ -17,7 +17,7 @@
   ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
   args:
     chdir: /app
-    
+
 - name: load schema
   ansible.builtin.import_role:
     name: common
