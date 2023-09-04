@@ -3,7 +3,7 @@
     name: common
     tasks_from: nodejs
 
-- name: set up application directory
+- name: set up application
   ansible.builtin.import_role:
     name: common
-    tasks_from: 
+    tasks_from: app-setup
