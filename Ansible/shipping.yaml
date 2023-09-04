@@ -1,9 +1,9 @@
-- name: installing shipping component
+- name: Install Shipping component
   hosts: shipping
   become: yes
-  tasks:  
-  - name: installing maven
-    yum:
+  tasks:
+  - name: Install Maven
+    ansible.builtin.yum:
       name: maven
       state: installed
 
@@ -17,7 +17,7 @@
     become: yes # we need sudo access for this task only
     ansible.builtin.user:
       name: roboshop
-  
+
   - name: check /app directory exists or not
     ansible.builtin.stat:
       path: /app
@@ -33,39 +33,39 @@
       path: /app
       state: directory
 
-  - name: download and extract
-    unarchive:
+  - name: Download shipping and extract
+    ansible.builtin.unarchive:
       src: https://roboshop-builds.s3.amazonaws.com/shipping.zip
       dest: /app
       remote_src: yes
 
   - name: maven package
-    command: mvn clean package
+    ansible.builtin.command: mvn clean package
     args:
       chdir: /app
 
   - name: rename jar file
-    command: mv target/shipping-1.0.jar shipping.jar
+    ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+    args:
       chdir: /app
 
-  - name: Setup SystemD Shipping Service
-    copy:
+  - name: copy shipping service
+    ansible.builtin.copy:
       src: shipping.service
       dest: /etc/systemd/system/shipping.service
-  
+
   - name: deamon reload
     ansible.builtin.systemd:
       daemon_reload: true
 
-  - name: installing mysql
-    yum: 
+  - name: Install MySQL client
+    ansible.builtin.yum:
       name: mysql
       state: installed
-  
-  
-  - name: load mysql schema
-    command: mysql -h mysql.maheshgolla.online -uroot -pRoboShop@1 < /app/schema/shipping.sql 
 
+  - name: load mysql schema
+    ansible.builtin.shell: mysql -h mysql.maheshgolla.online -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+  
   - name: restart shipping
     ansible.builtin.service:
       name: shipping
