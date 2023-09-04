@@ -1,0 +1,25 @@
+- name: installing mysql component
+  hosts: mysql
+  become: yes
+  tasks:  
+  - name: disabling the mysql
+    command: yum module disable mysql -y 
+
+  - name: Setup the MySQL5.7 repo file
+    copy:
+      src: mysql.repo
+      dest: /etc/yum.repos.d/mysql.repo
+
+  - name: Install MySQL Server
+    yum:
+      name: mysql-community-server
+      state: installed
+
+  - name: Start MySQL Service
+    yum:  
+      name: mysqld
+      state: started
+      enabled: true
+
+  - name: set username and password
+    command: mysql_secure_installation --set-root-pass RoboShop@1
