@@ -1,5 +1,5 @@
 CATALOGUE_HOST: catalogue.maheshgolla.online
 USER_HOST: user.maheshgolla.online
-CART_HOST: cart.maheshgolla.online
 SHIPPING_HOST: shipping.maheshgolla.online
-PAYEMT_HOST: payment.maheshgolla.online
+CART_HOST: cart.maheshgolla.online
+PAYMENT_HOST: payment.maheshgolla.online
