@@ -16,7 +16,7 @@
       state: installed
 
   - name: Start MySQL Service
-    yum:  
+    service:  
       name: mysqld
       state: started
       enabled: yes
