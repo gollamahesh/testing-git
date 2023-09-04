@@ -1,0 +1,26 @@
+ 
+- name: installing redis repo
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    state: installed
+    disable_gpg_check: true
+
+- name: enable redis
+  command: yum module enable redis:remi-6.2 -y
+
+- name: install redis
+  yum:
+    name: redis
+    state: installed
+
+- name: Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/redis.conf & /etc/redis/redis.conf
+  replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+    
+- name: Start & Enable Redis Service
+  service:
+    name: redis
+    state: started
+    enabled: true
